@@ -76,10 +76,10 @@ header {
   color: var(--green-black);
 }
 
-.navbar__name.navbar_change_color {
+/* .navbar__name.navbar_change_color {
   color: var(--green);
   transition: all 1 ease-in;
-}
+} */
 
 .navbar__links {
   position: fixed;
@@ -206,7 +206,6 @@ header {
 }
 
 @media (min-width: 62em) {
-
   .navbar__links {
     position: initial;
     transform: translateY(0);
@@ -254,13 +253,21 @@ header {
   height: 100vh;
   display: flex;
   align-items: center;
+  /* margin-bottom: 300px; */
 }
 
 .banner__img {
   position: absolute;
-  top: -100px;
-  right: 0;
+  top: -50px;
+  right: -10px;
   z-index: -1;
+}
+
+.mon_image img{
+  max-width: 200px;
+  position: absolute;
+  top: 385px;
+  right: 137px;
 }
 
 .banner__heading {
@@ -269,6 +276,7 @@ header {
   text-align: center;
   color: var(--grey);
   user-select: none;
+  padding-top: 500px;
 }
 
 .banner__heading h1 {
@@ -288,7 +296,7 @@ header {
 }
 
 .banner__social {
-  margin-top: 3em;
+  margin-top: 1.5em;
   display: flex;
   justify-content: space-evenly;
   font-size: 1.5em;
@@ -305,6 +313,12 @@ header {
 }
 
 @media (min-width: 62em) {
+  .mon_image img{
+    max-width: 200px;
+    top: 150px;
+    left: 150px;
+
+  }
   .banner__heading {
     text-align: initial;
     margin: 0;
@@ -332,11 +346,12 @@ header {
   }
 }
 
-/* Projet */
+/* Competences */
 #competences {
   position: relative;
   overflow-x: hidden;
-  margin-top: 15em;
+  margin-top: 30em;
+
 }
 
 #competences h2 {
@@ -384,6 +399,10 @@ header {
 }
 
 @media (min-width: 62em) {
+  #competences {
+    margin-top: 2em;
+  }
+  
   #competences .container {
     margin-left: 120px;
   }
@@ -455,6 +474,7 @@ header {
 
 .projet__img--seul {
   margin: 2em 0;
+  text-align: center;
 }
 
 .projet__img--seul:nth-child(odd) {
@@ -465,13 +485,9 @@ header {
   margin-top: 5em;
 }
 
-.projet__btn {
-  text-align: center;
-  margin-top: 8em;
-}
-
-.projet__btn button {
-  font-size: 1rem;
+.projet__img--seul a {
+  text-decoration: none;
+  color: var(--grey);
 }
 
 @media (min-width: 62em) {
@@ -545,6 +561,14 @@ header {
   z-index: -1;
 }
 
+footer {
+  text-align: center;
+  width: 100%;
+  background-color: var(--green);
+  padding: 1rem 0em;
+  margin-top: 4rem;
+}
+
 @media (min-width: 62em) {
   .footer__img {
     top: -15%;
@@ -558,14 +582,13 @@ header {
     margin: 0;
   }
 
-  .footer__heading{
+  .footer__heading {
     margin-left: 200px;
   }
 
   .footer__contacts {
     display: flex;
     justify-content: space-between;
-
   }
 
   .footer__contacts a {
