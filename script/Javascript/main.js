@@ -10,3 +10,22 @@ menuButton.addEventListener("click", () => {
   menuButton.classList.toggle("open");
   name.classList.toggle("navbar_change_color");
 });
+
+let darkmode = localStorage.getItem("dark_mode");
+const theme_switch = document.getElementById("switch-mode");
+
+const enableDarkmode = () => {
+  document.body.classList.add("dark_mode");
+  localStorage.setItem("dark_mode", "active");
+};
+
+const disableDarkmode = () => {
+  document.body.classList.remove("dark_mode");
+  localStorage.removeItem("dark_mode")
+};
+
+if (darkmode === "active") enableDarkmode();
+theme_switch.addEventListener("click", () => {
+  darkmode = localStorage.getItem("dark_mode");
+  darkmode !== "active" ? enableDarkmode() : disableDarkmode();
+});

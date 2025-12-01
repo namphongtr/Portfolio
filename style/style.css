@@ -11,6 +11,8 @@ body {
 
 body {
   font-family: "Roboto", sans-serif;
+  user-select: none;
+  background-color: var(--back-grd);
 }
 
 img {
@@ -48,10 +50,22 @@ button:hover {
 }
 
 :root {
+  --navbar: #32dea5;
+  --back-grd: #ffffff;
   --green: #54b192;
   --grey: #3f3d56;
   --green-light: #a4cec0;
   --green-black: #0f2e2e;
+  --smooth: all 0.2s ease-in;
+}
+
+.dark_mode {
+  --navbar: #78d9c2;
+  --back-grd: #202d29;
+  --green: #4da88a;
+  --grey: #5c5c94;
+  --green-light: #7fe4c4;
+  --green-black: #2d4747;
   --smooth: all 0.2s ease-in;
 }
 
@@ -63,13 +77,19 @@ header {
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
-  padding: 20px 0px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: var(--green-light);
 }
 
 .navbar__name {
-  z-index: 4;
+  z-index: 1001;
   display: inline-block;
   margin-left: 20px;
   font-size: 1.3em;
@@ -87,6 +107,7 @@ header {
   left: 0;
   width: 100%;
   height: 50%;
+  padding-bottom: 20px;
   background-color: var(--grey);
   z-index: 5;
   transition: var(--smooth);
@@ -110,7 +131,7 @@ header {
 .navbar__link a {
   font-size: 1rem;
   display: inline-block;
-  padding: 0px 80% 0px 0px;
+  padding: 0px 100% 0px 0px;
   text-decoration: none;
   color: #fff;
   font-weight: 300px;
@@ -141,11 +162,13 @@ header {
 .navbar__btn {
   font-size: 16px;
   background-color: var(--green);
-  margin-top: 80px;
-  margin-left: 35px;
+  margin-top: 88px;
+  margin-left: 8px;
 }
 
 .navbar__icons {
+  padding: auto;
+  margin-left: 73px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,7 +176,12 @@ header {
   height: 80px;
   cursor: pointer;
   transition: var(--smooth);
-  z-index: 6;
+
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
 }
 
 .navbar__icon {
@@ -205,7 +233,32 @@ header {
   transform: rotate(-45deg) translate(35px, 35px);
 }
 
+.navbar #switch-mode {
+  padding: 21px 21px;
+  margin-left: 30px;
+  transition: none;
+}
+
+.navbar #switch-mode{
+  background-color: var(--grey);
+}
+
+.navbar #switch-mode i:last-child {
+  display: none;
+}
+
+.dark_mode .navbar #switch-mode i:first-child {
+  display: none;
+}
+
+.dark_mode .navbar #switch-mode i:last-child {
+  display: block;
+}
+
 @media (min-width: 62em) {
+  .navbar {
+    justify-content: space-between;
+  }
   .navbar__links {
     position: initial;
     transform: translateY(0);
@@ -215,11 +268,13 @@ header {
     justify-content: flex-end;
     align-items: center;
     margin-top: -50px;
+    padding: 0;
   }
 
   .navbar__name {
-    margin-left: 35px;
+    margin-left: 45px;
     margin-top: 26px;
+    min-width: 350px;
     width: 350px;
     color: var(--green);
     user-select: none;
@@ -237,6 +292,10 @@ header {
     user-select: none;
   }
 
+  .navbar__link:nth-child(3){
+    width: 150px;
+  }
+
   .navbar__icons {
     display: none;
   }
@@ -245,43 +304,70 @@ header {
     background-color: var(--grey);
     user-select: none;
   }
+
+  .navbar #switch-mode {
+    margin-right: 20px;
+    margin-top: 20px;
+    transition: none;
+  }
+
 }
 
 /* banner */
 #banner {
   position: relative;
-  height: 100vh;
+  height: 110vh;
   display: flex;
   align-items: center;
-  /* margin-bottom: 300px; */
+  overflow: hidden;
+  margin-bottom: 200px;
+  padding-bottom: 15em;
+  justify-content: center; /* căn giữa theo chiều dọc */
+  align-items: center; /* căn giữa theo chiều ngang */
 }
 
 .banner__img {
   position: absolute;
   top: -50px;
-  right: -10px;
+  /* right: -20px; */
+  width: 100%;
+  height: 69%;
+  overflow: hidden;
   z-index: -1;
 }
 
-.mon_image img{
+.banner__img img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover; /* Ảnh luôn giữ bố cục đẹp */
+  object-position: center;
+}
+
+.mon_image img {
   max-width: 200px;
-  position: absolute;
+  position: relative;
   top: 385px;
-  right: 137px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 60%;
+  max-width: 160px;
+  margin-top: 40rem;
+  z-index: 3;
 }
 
 .banner__heading {
+  position: relative;
   max-width: 300px;
   margin: 0 auto;
   text-align: center;
   color: var(--grey);
   user-select: none;
-  padding-top: 500px;
+  /* padding-top: 500px; */
+  z-index: 5;
 }
 
 .banner__heading h1 {
   font-size: 1.5rem;
-  padding-top: 17em;
   margin-bottom: 0.8em;
 }
 
@@ -289,6 +375,7 @@ header {
   font-weight: 300;
   line-height: 2em;
   margin-bottom: 1.5em;
+  z-index: 10000;
 }
 
 .banner__btn {
@@ -313,11 +400,12 @@ header {
 }
 
 @media (min-width: 62em) {
-  .mon_image img{
+  .mon_image img {
     max-width: 200px;
-    top: 150px;
-    left: 150px;
-
+    top: 22%;
+    left: 18%;
+    transform: translateX(-50%);
+    margin-top: 9rem;
   }
   .banner__heading {
     text-align: initial;
@@ -335,7 +423,8 @@ header {
   }
 
   .banner__img {
-    width: 60%;
+    height: 108%;
+    width: 65%;
     padding: 40px;
     right: -40px;
     justify-content: flex-end;
@@ -350,8 +439,8 @@ header {
 #competences {
   position: relative;
   overflow-x: hidden;
-  margin-top: 30em;
-
+  /* margin-top: 30em; */
+  z-index: -1;
 }
 
 #competences h2 {
@@ -400,9 +489,9 @@ header {
 
 @media (min-width: 62em) {
   #competences {
-    margin-top: 2em;
+    margin-top: 4em;
   }
-  
+
   #competences .container {
     margin-left: 120px;
   }
@@ -566,7 +655,7 @@ footer {
   width: 100%;
   background-color: var(--green);
   padding: 1rem 0em;
-  margin-top: 4rem;
+  margin-top: 1rem;
 }
 
 @media (min-width: 62em) {
