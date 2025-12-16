@@ -23,13 +23,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// menuButton.addEventListener("click", (e) => {
-//   e.stopPropagation();
-//   menu.classList.toggle("navbar__open");
-//   menuButton.classList.toggle("open");
-//   name.classList.toggle("navbar_change_color");
-// });
-
 const Navclose = document.querySelectorAll(".nav-close");
 
 Navclose.forEach((link) => {

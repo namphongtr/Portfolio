@@ -50,6 +50,7 @@ button:hover {
 }
 
 :root {
+  --name-color: #7ddfd6;
   --navbar: #32dea5;
   --back-grd: #ffffff;
   --green: #54b192;
@@ -60,6 +61,7 @@ button:hover {
 }
 
 .dark_mode {
+  --name-color: #7ddfd6;
   --navbar: #78d9c2;
   --back-grd: #202d29;
   --green: #4da88a;
@@ -96,10 +98,10 @@ header {
   color: var(--green-black);
 }
 
-/* .navbar__name.navbar_change_color {
-  color: var(--green);
+.navbar__name.navbar_change_color {
+  color: var(--name-color);
   transition: all 1 ease-in;
-} */
+}
 
 .navbar__links {
   position: fixed;
@@ -239,10 +241,8 @@ header {
   padding: 21px 21px;
   margin-left: 30px;
   transition: none;
-}
-
-.navbar #switch-mode {
-  background-color: var(--grey);
+  background-color: var(--green);
+  z-index: 1002;
 }
 
 .navbar #switch-mode i:last-child {
